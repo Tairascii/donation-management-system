@@ -1,1 +1,1 @@
-# donation-managment-system
+# donation-management-system
