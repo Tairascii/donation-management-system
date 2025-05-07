@@ -21,7 +21,7 @@ create table campaigns (
     organization_id integer references organizations(id) on delete cascade,
     title varchar(150) not null,
     description text,
-    goal_amount numeric(12, 2),
+    goal_amount integer,
     start_date date,
     end_date date,
     created_at timestamp default now()
@@ -31,9 +31,7 @@ create table donations (
     id serial primary key,
     user_id integer references users(id) on delete set null,
     campaign_id integer references campaigns(id) on delete set null,
-    amount numeric(12, 2) not null,
-    payment_method varchar(50),
-    transaction_id varchar(100),
+    amount integer not null,
     donated_at timestamp default now()
 );
 -- +goose StatementEnd
